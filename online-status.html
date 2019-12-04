@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+      var showAnimation = true;
+      function toggleAnimation() {
+        let body = document.getElementById("body");
+        let toggler = document.getElementById("animation-toggler");
+        showAnimation = !showAnimation;
+        if (showAnimation) {
+          body.classList.add("allow-animations");
+          toggler.classList.remove("fa-pause-circle");
+          toggler.classList.add("fa-play-circle");
+        } else {
+          body.classList.remove("allow-animations");
+          toggler.classList.remove("fa-play-circle");
+          toggler.classList.add("fa-pause-circle");
+        }
+      }
+    </script>
+    <style>
+      .fa-user {
+        color: green;
+        text-shadow: 0.5px 0.5px 0.7px black;
+      }
+      .allow-animations .fa-user {
+        -webkit-animation: example 5s infinite; /* Safari 4.0 - 8.0 */
+        animation: example 5s infinite;
+        -moz-animation: example 5s infinite; /* Fx 5+ */
+        -o-animation: example 5s infinite; /* Opera 12+ */
+      }
+
+      /* Safari 4.0 - 8.0 */
+      @-webkit-keyframes example {
+        0% {
+          color: #00b300;
+        }
+        25% {
+          color: #00cc00;
+        }
+        50% {
+          color: #00e600;
+        }
+        75% {
+          color: #00cc00;
+        }
+        100% {
+          color: #00b300;
+        }
+      }
+
+      /* Standard syntax */
+      @keyframes example {
+        0% {
+          color: #00b300;
+        }
+        25% {
+          color: #00cc00;
+        }
+        50% {
+          color: #00e600;
+        }
+        75% {
+          color: #00cc00;
+        }
+        100% {
+          color: #00b300;
+        }
+      }
+    </style>
+  </head>
+
+  <body id="body" class="allow-animations" style="font-size:24px;">
+    <div id="app"></div>
+
+    <button><span class="fa fa-user"></span> User</button>
+    <button onclick="toggleAnimation()">
+      <span id="animation-toggler" class="fa fas fa-play-circle"></span>
+    </button>
+  </body>
+</html>
